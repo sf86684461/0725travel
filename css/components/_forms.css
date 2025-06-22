@@ -1,0 +1,92 @@
+/* 表单基础样式 */
+.c-form {
+  width: 100%;
+}
+
+.c-form__group {
+  margin-bottom: var(--spacing-6);
+}
+
+.c-form__label {
+  display: block;
+  margin-bottom: var(--spacing-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+}
+
+.c-form__input,
+.c-form__textarea,
+.c-form__select {
+  width: 100%;
+  padding: var(--spacing-3) var(--spacing-4);
+  border: 2px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.c-form__input:focus,
+.c-form__textarea:focus,
+.c-form__select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(26, 147, 111, 0.1);
+}
+
+.c-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* 表单验证状态 */
+.c-form__input--error,
+.c-form__textarea--error,
+.c-form__select--error {
+  border-color: var(--color-error);
+}
+
+.c-form__input--success,
+.c-form__textarea--success,
+.c-form__select--success {
+  border-color: var(--color-success);
+}
+
+.c-form__error {
+  display: block;
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-error);
+}
+
+.c-form__help {
+  display: block;
+  margin-top: var(--spacing-1);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+}
+
+/* 复选框和单选框 */
+.c-form__checkbox,
+.c-form__radio {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.c-form__checkbox input,
+.c-form__radio input {
+  width: auto;
+  margin: 0;
+}
+
+/* 表单布局 */
+.c-form--inline {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: end;
+}
+
+.c-form--inline .c-form__group {
+  margin-bottom: 0;
+  flex: 1;
+}

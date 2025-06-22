@@ -1,57 +1,36 @@
 /* 英雄区域样式 */
-.hero {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: var(--color-white);
-  padding: var(--spacing-20) 0;
+.c-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url('https://images.unsplash.com/photo-1503220317375-aaad61436b1b');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  color: white;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('../../images/hero-bg.jpg') center/cover;
-  opacity: 0.3;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
+.c-hero__content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 var(--spacing-4);
 }
 
-.hero-title {
+.c-hero__title {
   font-size: var(--font-size-5xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-6);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: var(--spacing-5);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-description {
+.c-hero__description {
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-8);
-  opacity: 0.9;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 768px) {
-  .hero {
-    padding: var(--spacing-16) 0;
-  }
-  
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-  
-  .hero-description {
-    font-size: var(--font-size-lg);
-  }
+.c-hero__cta {
+  display: flex;
+  gap: var(--spacing-4);
+  justify-content: center;
+  flex-wrap: wrap;
 }

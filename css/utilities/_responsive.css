@@ -1,90 +1,59 @@
 /* 响应式工具类 */
 
-/* 显示/隐藏工具类 */
-.hidden {
-  display: none !important;
-}
-
-.visible {
-  display: block !important;
-}
-
-/* 移动端隐藏 */
+/* 响应式工具类 */
 @media (max-width: 768px) {
-  .hidden-mobile {
-    display: none !important;
+  .u-hide-mobile { display: none !important; }
+  .u-text-center-mobile { text-align: center !important; }
+  
+  /* 网格响应式 */
+  .o-grid--2cols,
+  .o-grid--3cols,
+  .o-grid--4cols {
+    grid-template-columns: 1fr;
   }
-}
-
-/* 桌面端隐藏 */
-@media (min-width: 769px) {
-  .hidden-desktop {
-    display: none !important;
+  
+  /* 组件响应式 */
+  .c-hero__title {
+    font-size: var(--font-size-3xl);
   }
-}
-
-/* 文本对齐 */
-.text-left {
-  text-align: left;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-@media (max-width: 768px) {
-  .text-center-mobile {
-    text-align: center;
-  }
-}
-
-/* 响应式网格调整 */
-@media (max-width: 768px) {
-  .grid-responsive {
-    grid-template-columns: 1fr !important;
-    gap: var(--spacing-4) !important;
-  }
-}
-
-/* 导航响应式 */
-@media (max-width: 768px) {
-  .nav-links {
+  
+  .c-nav__links {
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-lg);
-    flex-direction: column;
-    padding: var(--spacing-4) 0;
   }
   
-  .nav-links.active {
-    display: flex;
-  }
-  
-  .nav-links a {
-    padding: var(--spacing-3) var(--spacing-6);
-    border-bottom: 1px solid var(--color-gray-200);
-  }
-  
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-}
-
-/* 移动端按钮显示 */
-.mobile-menu-btn {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .mobile-menu-btn {
+  .c-nav__mobile-btn {
     display: block;
   }
 }
+
+@media (min-width: 769px) {
+  .u-hide-desktop { display: none !important; }
+  
+  .c-nav__mobile-btn {
+    display: none;
+  }
+}
+
+/* 显示工具类 */
+.u-block { display: block !important; }
+.u-inline { display: inline !important; }
+.u-inline-block { display: inline-block !important; }
+.u-flex { display: flex !important; }
+.u-grid { display: grid !important; }
+.u-hidden { display: none !important; }
+
+/* 文本对齐 */
+.u-text-left { text-align: left !important; }
+.u-text-center { text-align: center !important; }
+.u-text-right { text-align: right !important; }
+
+/* 颜色工具类 */
+.u-text-primary { color: var(--color-primary) !important; }
+.u-text-secondary { color: var(--color-secondary) !important; }
+.u-text-gray { color: var(--color-gray-600) !important; }
+.u-text-white { color: var(--color-white) !important; }
+
+.u-bg-primary { background-color: var(--color-primary) !important; }
+.u-bg-secondary { background-color: var(--color-secondary) !important; }
+.u-bg-white { background-color: var(--color-white) !important; }
+.u-bg-gray { background-color: var(--color-gray-100) !important; }

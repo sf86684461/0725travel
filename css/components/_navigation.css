@@ -1,0 +1,114 @@
+/* 导航基础样式 */
+.c-nav {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.c-nav__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-4) 0;
+}
+
+.c-nav__logo {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.c-nav__links {
+  display: flex;
+  gap: var(--spacing-8);
+  list-style: none;
+}
+
+.c-nav__link {
+  color: var(--color-gray-700);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--transition-normal);
+  position: relative;
+}
+
+.c-nav__link:hover,
+.c-nav__link--active {
+  color: var(--color-primary);
+}
+
+.c-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width var(--transition-normal);
+}
+
+.c-nav__link:hover::after,
+.c-nav__link--active::after {
+  width: 100%;
+}
+
+/* 移动端导航 */
+.c-nav__mobile-btn {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--spacing-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.c-nav__mobile-btn span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-gray-700);
+  transition: var(--transition-normal);
+}
+
+.c-nav__mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-4);
+}
+
+.c-nav__mobile-menu.is-open {
+  display: block;
+}
+
+.c-nav__mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+/* 响应式导航 */
+@media (max-width: 768px) {
+  .c-nav__links {
+    display: none;
+  }
+  
+  .c-nav__mobile-btn {
+    display: flex;
+  }
+}
+
+@media (min-width: 769px) {
+  .c-nav__mobile-btn,
+  .c-nav__mobile-menu {
+    display: none !important;
+  }
+}

@@ -1,77 +1,81 @@
-/* 按钮组件样式 */
-.btn {
+/* 按钮基础样式 */
+.c-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-3) var(--spacing-6);
-  border: 2px solid transparent;
-  border-radius: var(--radius-lg);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-  cursor: pointer;
-  transition: var(--transition-property-common) var(--transition-normal) var(--transition-timing-common);
-  white-space: nowrap;
-  user-select: none;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  text-align: center;
+  transition-property: var(--transition-property-common);
+  transition-duration: var(--transition-normal);
+  transition-timing-function: var(--transition-timing-common);
 }
 
-/* 主色按钮 */
-.btn-primary {
+/* 按钮变体 */
+.c-button--primary {
   background-color: var(--color-primary);
   color: var(--color-white);
-  border-color: var(--color-primary);
 }
 
-.btn-primary:hover {
+.c-button--primary:hover {
   background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
 
-/* 次色按钮 */
-.btn-secondary {
-  background-color: var(--color-accent);
-  color: var(--color-dark);
-  border-color: var(--color-accent);
+.c-button--secondary {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
 }
 
-.btn-secondary:hover {
-  background-color: var(--color-gray-200);
-  border-color: var(--color-gray-200);
-}
-
-/* 描边按钮 */
-.btn-outline {
+.c-button--outline {
   background-color: transparent;
+  border: 2px solid var(--color-primary);
   color: var(--color-primary);
-  border-color: var(--color-primary);
 }
 
-.btn-outline:hover {
+.c-button--outline:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
 }
 
 /* 按钮尺寸 */
-.btn-sm {
+.c-button--sm {
   padding: var(--spacing-2) var(--spacing-4);
   font-size: var(--font-size-sm);
 }
 
-.btn-lg {
+.c-button--lg {
   padding: var(--spacing-4) var(--spacing-8);
   font-size: var(--font-size-lg);
 }
 
 /* 按钮状态 */
-.btn:disabled {
-  opacity: 0.6;
+.c-button:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
-  transform: none;
+  pointer-events: none;
 }
 
-.btn:disabled:hover {
-  transform: none;
-  box-shadow: none;
+.c-button--loading {
+  position: relative;
+  color: transparent;
+}
+
+.c-button--loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

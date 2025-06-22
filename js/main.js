@@ -1,4 +1,4 @@
-// 等待 DOM 加载完成
+// 主要JavaScript功能文件
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化所有功能
     initSmoothScroll();

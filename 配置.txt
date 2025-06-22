@@ -1,0 +1,48 @@
+# CSS 文件组织结构说明
+
+## 分层架构 (ITCSS)
+
+### 1. Settings 层 (设置层)
+- `_variables.css` - CSS 自定义属性和全局变量
+
+### 2. Generic 层 (基础层)
+- `_reset.css` - CSS 重置和标准化样式
+
+### 3. Objects 层 (对象层)
+- `_grid.css` - 网格系统和布局对象
+
+### 4. Components 层 (组件层)
+#### 基础组件:
+- `_buttons.css` - 按钮组件
+- `_cards.css` - 卡片组件
+- `_forms.css` - 表单组件
+- `_navigation.css` - 导航组件
+
+#### 页面区块:
+- `_sections/_hero.css` - 英雄区域
+- `_sections/_features.css` - 特性展示区域
+- `_sections/_services.css` - 服务展示区域
+- `_sections/_testimonials.css` - 客户评价区域
+- `_sections/_booking.css` - 预订表单区域
+
+### 5. Utilities 层 (工具类层)
+- `_spacing.css` - 间距工具类
+- `_responsive.css` - 响应式工具类
+
+### 6. Pages 层 (页面层)
+- `_home.css` - 首页特定样式
+- `_about.css` - 关于页面特定样式
+
+## 使用方法
+
+1. 通过 `main.css` 统一引入所有样式文件
+2. 按照从通用到具体的顺序加载
+3. 利用 CSS 自定义属性实现主题一致性
+4. 使用 BEM 命名规范保持组件独立性
+
+## 优势
+
+- **可维护性**: 清晰的文件结构便于维护
+- **可扩展性**: 模块化设计便于添加新功能
+- **性能优化**: 按需加载和优化的 CSS 结构
+- **团队协作**: 标准化的组织方式便于团队开发

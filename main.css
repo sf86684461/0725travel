@@ -1,13 +1,13 @@
-/* 新的统一入口文件 */
+/* 主样式文件 - 使用 ITCSS 架构 */
 
 /* 设置层 */
-@import 'css/settings/_variables.css';
+@import 'css/_variables.css';
 
 /* 基础层 */
-@import 'css/generic/_reset.css';
+@import 'css/_reset.css';
 
 /* 对象层 */
-@import 'css/objects/_grid.css';
+@import 'css/_grid.css';
 
 /* 组件层 - 基础组件 */
 @import 'css/components/_buttons.css';
@@ -18,9 +18,6 @@
 /* 组件层 - 页面区块 */
 @import 'css/components/_sections/_hero.css';
 @import 'css/components/_sections/_features.css';
-@import 'css/components/_sections/_services.css';
-@import 'css/components/_sections/_testimonials.css';
-@import 'css/components/_sections/_booking.css';
 
 /* 工具类层 */
 @import 'css/utilities/_spacing.css';

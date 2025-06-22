@@ -1,4 +1,4 @@
-// 主要JavaScript功能文件
+// 主JavaScript文件
 document.addEventListener('DOMContentLoaded', function() {
     // 初始化所有功能
     initSmoothScroll();
@@ -100,19 +100,34 @@ function showMessage(message, type = 'info') {
     messageEl.textContent = message;
     
     // 添加样式
-    Object.assign(messageEl.style, {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        padding: '15px 20px',
-        borderRadius: '5px',
-        color: 'white',
-        backgroundColor: type === 'success' ? '#1a936f' : '#e74c3c',
-        zIndex: '9999',
-        opacity: '0',
-        transform: 'translateX(100%)',
-        transition: 'all 0.3s ease'
-    });
+    messageEl.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 500;
+        z-index: 10000;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+    `;
+    
+    // 根据类型设置背景色
+    switch(type) {
+        case 'success':
+            messageEl.style.backgroundColor = '#10b981';
+            break;
+        case 'error':
+            messageEl.style.backgroundColor = '#ef4444';
+            break;
+        case 'warning':
+            messageEl.style.backgroundColor = '#f59e0b';
+            break;
+        default:
+            messageEl.style.backgroundColor = '#3b82f6';
+    }
     
     // 添加到页面
     document.body.appendChild(messageEl);
@@ -123,14 +138,12 @@ function showMessage(message, type = 'info') {
         messageEl.style.transform = 'translateX(0)';
     }, 100);
     
-    // 自动移除
+    // 自动隐藏
     setTimeout(() => {
         messageEl.style.opacity = '0';
         messageEl.style.transform = 'translateX(100%)';
         setTimeout(() => {
-            if (messageEl.parentNode) {
-                messageEl.parentNode.removeChild(messageEl);
-            }
+            document.body.removeChild(messageEl);
         }, 300);
     }, 3000);
 }
@@ -145,22 +158,14 @@ function initMobileMenu() {
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            
-            // 切换图标
-            const icon = this.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.className = 'fas fa-times';
-            } else {
-                icon.className = 'fas fa-bars';
-            }
+            this.classList.toggle('active');
         });
         
-        // 点击链接后关闭菜单
+        // 点击菜单项后关闭菜单
         navLinks.addEventListener('click', function(e) {
             if (e.target.tagName === 'A') {
-                this.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.className = 'fas fa-bars';
+                navLinks.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
             }
         });
     }
